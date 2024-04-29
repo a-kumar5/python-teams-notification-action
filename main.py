@@ -37,5 +37,5 @@ And also a demonstration of an HTML content used for a Teams notification<br>
 😍
 """
 
-url = "https://searshc.webhook.office.com/webhookb2/34f6d740-a240-4d8e-a030-1b8c5a1ccc03@27e4c168-0323-4463-acad-7e124b566726/IncomingWebhook/3fa80d8d58814d22ad996f9a017737b6/727d96fa-3dd1-4da0-ad93-9b4f153c66fd"
+url = "<PLEASE_SPECIFY_YOUR_WEBHOOK_URL>"
 send_teams(url, content, title)
