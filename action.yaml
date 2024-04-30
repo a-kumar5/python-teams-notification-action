@@ -1,6 +1,7 @@
 name: 'pymsnotify'
 author: "Ayush Kumar"
-description: 'A GitHub Action that takes teams webhook url as input and send notification to teams channel'
+description: 'A GitHub Action that takes microsoft teams webhook url as input and send notification to teams channel'
+icon: "send"
 inputs:
   url:
     description: 'teams channel webhook url'
