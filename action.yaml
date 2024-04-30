@@ -1,0 +1,33 @@
+name: 'pymsnotify'
+author: "Ayush Kumar"
+description: 'A GitHub Action that takes teams webhook url as input and send notification to teams channel'
+inputs:
+  url:
+    description: 'teams channel webhook url'
+    required: true
+  content:
+    description: 'notification message content'
+    required: true
+  title:
+    description: 'notification title'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
+      shell: bash
+    - name: Pass Inputs to Shell
+      run: |
+              echo "URL=${{ inputs.url }}" >> $GITHUB_ENV
+              echo "CONTENT=${{ inputs.content }}" >> $GITHUB_ENV
+              echo "TITLE=${{ inputs.title }}" >> $GITHUB_ENV
+      shell: bash
+    - name: Send notification to specified teams channel
+      id: send-notification
+      run: python -m main.py
+      shell: bash

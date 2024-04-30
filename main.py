@@ -1,4 +1,10 @@
 import requests
+import os
+
+# get the input and convert it to int
+url = os.environ.get("URL")
+content = os.environ.get("CONTENT")
+title = os.environ.get("TITLE")
 
 def send_teams(webhook_url:str, content:str, title:str, color:str="000000") -> int:
     """
@@ -24,8 +30,8 @@ def send_teams(webhook_url:str, content:str, title:str, color:str="000000") -> i
     return response.status_code
 
 
-title="Automated Notification about Fruits"
-content = """
+#title="Automated Notification about Fruits"
+'''content = """
 The content of this notification is <i>special</i>.<br>
 It is the list of my favorite <b>fruits</b>
 <ul>
@@ -36,6 +42,6 @@ It is the list of my favorite <b>fruits</b>
 And also a demonstration of an HTML content used for a Teams notification<br>
 😍
 """
+'''
 
-url = "<PLEASE_SPECIFY_YOUR_WEBHOOK_URL>"
 send_teams(url, content, title)
