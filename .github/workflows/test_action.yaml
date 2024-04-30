@@ -9,9 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: send_notification
-        uses: ./ # Uses an action in the root directory
-        # or use a released GitHub Action
-        # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
+        uses: ./
         with:
           url: "https://searshc.webhook.office.com/webhookb2/34f6d740-a240-4d8e-a030-1b8c5a1ccc03@27e4c168-0323-4463-acad-7e124b566726/IncomingWebhook/3fa80d8d58814d22ad996f9a017737b6/727d96fa-3dd1-4da0-ad93-9b4f153c66fd"
           content: "Test message from github actions"
