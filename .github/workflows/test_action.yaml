@@ -2,7 +2,7 @@ name: Test Action
 on: [push]
 
 jobs:
-  get-num-square:
+  send-teams-notification:
     runs-on: ubuntu-latest
     name: Sends notification to teams.
     steps:

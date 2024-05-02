@@ -1,7 +1,9 @@
 name: 'pymsnotify'
 author: "Ayush Kumar"
 description: 'A GitHub Action that takes microsoft teams webhook url as input and send notification to teams channel'
-icon: "send"
+branding:
+  icon: 'send'
+  color: 'blue'
 inputs:
   url:
     description: 'teams channel webhook url'
@@ -30,5 +32,5 @@ runs:
       shell: bash
     - name: Send notification to specified teams channel
       id: send-notification
-      run: python -m main
+      run: python -m src.main
       shell: bash
