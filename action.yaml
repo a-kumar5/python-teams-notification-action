@@ -32,5 +32,5 @@ runs:
       shell: bash
     - name: Send notification to specified teams channel
       id: send-notification
-      run: python -m src/main
+      run: python -m src.main
       shell: bash
