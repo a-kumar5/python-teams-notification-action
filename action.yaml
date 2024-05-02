@@ -23,7 +23,7 @@ runs:
       with:
         python-version: '3.11'
     - name: Install Dependencies
-      run: pip install -r requirements.txt
+      run: pip install -r ${{github.action_path}}/requirements.txt
       shell: bash
     - name: Pass Inputs to Shell
       run: |
@@ -33,5 +33,5 @@ runs:
       shell: bash
     - name: Send notification to specified teams channel
       id: send-notification
-      run: python -m src.main
+      run: python -m ${{github.action_path}}.src.main
       shell: bash
