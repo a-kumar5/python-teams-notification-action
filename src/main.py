@@ -27,6 +27,6 @@ def send_teams(webhook_url:str, content:str, title:str, color:str="000000") -> i
             }],
         },
     )
-    return response.status_code
+    return response
 
 send_teams(url, content, title)
