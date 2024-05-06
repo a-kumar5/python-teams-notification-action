@@ -2,15 +2,35 @@ name: Test Action
 on: [push]
 
 jobs:
-  send-teams-notification:
+  Job1:
     runs-on: ubuntu-latest
-    name: Sends notification to teams.
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: send_notification
-        uses: ./
-        with:
-          url: ${{ secrets.TEAMS_URL }}
-          content: ${{ github.sha }}
-          title: "HELLO_TEAMS"
+      - name: 'Checkout the code'
+        uses: actions/checkout@v3
+      - name: List of the GitHub Actions environment variables on Linux
+        run: env
+      - name: Set Everything Up
+        run: exit 0
+  Job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout the code'
+        uses: actions/checkout@v3
+      - name: Run the test suite
+        run: exit 1
+    pymsnotify:
+      runs-on: ubuntu-latest
+      needs: [ Job1, Job2 ]
+      if: always()
+      steps:
+        - name: 'Checkout the code'
+          uses: actions/checkout@v3
+        - name: Send Notification To Teams Channel
+          uses: a-kumar5/python-teams-notification-action@v0.2.2
+          with:
+            url: ${{ secrets.TEAMS_URL }}
+            msg: "pymsnotify sent this message from github actions."
+            title: "Github Actions Notifications"
+            job_status: ${{ join(needs.*.result, ' ') }}
+            repository: ${{ github.repository }}
+            run_id: ${{ github.run_id }}
