@@ -1,3 +1,3 @@
-from .main import main  # pragma: no cover
+from main import main  # pragma: no cover
 
 main()
