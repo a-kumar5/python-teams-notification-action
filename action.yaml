@@ -46,5 +46,5 @@ runs:
       shell: bash
     - name: Send notification to specified teams channel
       id: send-notification
-      run: python -m ${{github.action_path}}/src/pymsnotify
+      run: python ${{github.action_path}}/src/pymsnotify/__main__.py
       shell: bash
